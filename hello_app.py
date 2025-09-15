@@ -1,23 +1,21 @@
 import streamlit as st
 
-# Verifica login (opcional)
-if "logado" not in st.session_state:
-    st.session_state.logado = True  # Simula login para teste
+# Remove margens e ocupa a tela inteira
+st.markdown("""
+    <style>
+        .full-screen-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 0, 0, 0.2);
+            z-index: -1;
+        }
+    </style>
+    <div class="full-screen-box"></div>
+""", unsafe_allow_html=True)
 
-if st.session_state.logado:
-    st.title("Meu App Web")
-
-    # Quadro vermelho para visualização
-    st.markdown("""
-        <div style="border: 2px solid red; padding: 20px; border-radius: 10px; background-color: #ffe6e6;">
-            <h3 style="color: red; text-align: center;">Área para colocar informações</h3>
-            <p style="text-align: center;">Você pode adicionar texto, gráficos, campos de entrada, etc.</p>
-        </div>
-    """, unsafe_allow_html=True)
-
-    # Botão central
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("Clique aqui"):
-            st.success("Hello World!")
+st.title("Visualização de Tela Cheia")
+st.write("Esse fundo vermelho mostra a área total disponível para o app.")
 
