@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Remove margens e ocupa a tela inteira
+# Estilo para ocupar a tela inteira e destacar o botão
 st.markdown("""
     <style>
         .full-screen-box {
@@ -9,13 +9,32 @@ st.markdown("""
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(255, 0, 0, 0.2);
+            background-color: rgba(255, 0, 0, 0.1);
             z-index: -1;
+        }
+        .custom-button {
+            display: block;
+            width: 100%;
+            padding: 1em;
+            background-color: white;
+            border-left: 10px solid red;
+            border-right: 10px solid red;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            cursor: pointer;
         }
     </style>
     <div class="full-screen-box"></div>
 """, unsafe_allow_html=True)
 
-st.title("Visualização de Tela Cheia")
-st.write("Esse fundo vermelho mostra a área total disponível para o app.")
+st.markdown("<h1 style='text-align: center;'>Visualização com Botão em Tela Cheia</h1>", unsafe_allow_html=True)
+
+# Botão estilizado
+clicked = st.button("Clique aqui", key="custom")
+
+if clicked:
+    st.success("Hello World!")
+
 
